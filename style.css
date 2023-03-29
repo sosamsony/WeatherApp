@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;0,800;0,900;1,600;1,700;1,800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root{
+    --colorDark1: #112D4E;
+    --colorDark2: #3F72AF;
+    --colorLight1: #DBE2EF;
+    --colorLight2: #F9F7F7;
+}
+
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.656) 0%, rgba(255, 255, 255, 0.377) 100%), url(./assets/rainy.jpg);
+    /* background-image: url(./assets/chill.jpg); */
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container{
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+h1{
+    color: var(--colorLight2);
+    text-transform: uppercase;
+    padding-top: 20px;
+}
+
+.tab-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 15px 20px ;
+    border: 1px solid var(--colorLight1);
+    border-radius: 50px;
+    background-image: linear-gradient(262deg, rgba(0, 0, 0, 0.408) 0%, rgba(255, 255, 255, 0) 51%, rgba(0, 0, 0, 0.408) 100%), url(./assets/chill.jpg);
+    backdrop-filter: opacity(0.8);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tab{
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.tab.current-tab {
+    color: rgb(255, 255, 255);
+}
+
+.weather-container{
+    padding: 15px 20px;
+    margin-block: 1rem;
+    border: 1px solid var(--colorLight1);
+    border-radius: 30px;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.41) 0%, rgba(255, 255, 255, 0.13) 100%), url(./assets/chill.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btn{
+    all: unset;
+    color: var(--colorLight2);
+    padding: 10px 30px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    outline: none;
+    background-color: var(--colorDark2);
+    border: 1px solid var(--colorLight1);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.sub-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.access-container{
+    display: none;
+}
+
+.access-container.active{
+    display: flex;
+}
+
+.access-container img{
+    margin-bottom: 1.5rem;
+}
+
+.access-container p:first-of-type{
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--colorLight2);
+}
+
+.access-container p:last-of-type{
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 0.75rem;
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.75px;
+    color: var(--colorLight2);
+}
+
+.loading-container{
+    display: none;
+}
+
+.loading-container.active{
+    display: flex;
+}
+
+.loading-container p{
+    text-transform: uppercase;
+    color: var(--colorLight2);
+    font-weight: 500;
+}
+
+.api-error-container{
+    display: none;
+}
+
+.api-error-container.active{
+    display: flex;
+    
+}
+
+.api-error-container p{
+    text-transform: uppercase;
+    color: #DBE2EF;
+    font-weight: 500;
+}
+
+.user-info-container{
+    display: none;
+    margin-top: 3rem;
+}
+
+.user-info-container.active{
+    display: flex; 
+}
+
+.name{
+    color: var(--colorLight2);
+    margin-bottom: 1rem;
+}
+
+.name p{
+    font-size: 3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.temp-desc{
+    display: flex;
+    flex-direction: column;
+    color: var(--colorLight2);
+    gap: 5px 0;
+    margin-bottom: 1rem;
+}
+
+.temp-desc p:first-of-type{
+    font-size: 3.5rem;
+    font-weight: 400;
+}
+
+.temp-desc p:last-of-type{
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.parameter-container{
+    display: flex;
+    /* flex-wrap: wrap; */
+    margin: 0 auto;
+    justify-content: center;
+    color: var(--colorLight2);
+    gap: 10px 20px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.parameter{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    max-width: 300px;
+    border: 1px solid var(--colorLight2);
+    border-radius: 10px;
+    padding: 1rem;
+    align-items: center;
+}
+
+.parameter p:first-of-type{
+    font-size: 1.14rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.parameter p:last-of-type{
+    font-size: 0.95rem;
+}
+
+.form-container{
+    display: none;
+    width: 90%;
+    max-width: 550px;
+    margin: 0 auto;
+    gap: 0 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container.active{
+    display: flex;
+}
+
+.form-container input{
+    all: unset;
+    background-color: var(--colorLight1);
+    width: calc(100% - 80px);
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 10px;
+}
+
+.form-container input::placeholder{
+    color: var(--colorDark1);
+}
+
+.form-container input:focus{
+    outline: 2px solid var(--colorDark1);
+}
+
+.form-container .btn{
+    all: unset;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.536);
+    border-radius: 100%;
+}
+
+
+
+@media (max-width: 320px) {
+
+    h1{
+        font-size: 1.5rem;
+    }
+
+    .tab-container{
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 5px;
+    }
+    
+    .container{
+        width: 80%;
+        max-width: 400px;
+    }
+
+    .weather-container{
+        margin-block: 0;
+    }
+
+    .name p{
+        font-size: 2.5rem;
+    }
+
+    .temp-desc p:first-of-type{
+        font-size: 1.5rem;
+    }
+
+    .user-info-container{
+        margin-top: 1rem;
+    }
+
+    .parameter-container{
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .parameter{
+        width: 100%;
+    }
+}
+
+@media (max-width: 376px) {
+
+    .container{
+        max-width: 300px;
+    }
+
+
+    .tab-container{
+        flex-direction: column;
+        margin-bottom: 5px;
+        gap: 10px;
+
+    }
+
+    .weather-container{
+        margin-block: 0;
+    }
+
+    .user-info-container{
+        margin-top: 1rem;
+    }
+
+    .parameter-container{
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .parameter{
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 426px) {
+
+    .parameter-container{
+        flex-wrap: wrap;
+        margin: 0 auto;
+        align-items: center;
+    }
+
+    .parameter{
+        width: 100%;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
