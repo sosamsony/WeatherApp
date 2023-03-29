@@ -247,6 +247,10 @@ h1{
     border-radius: 10px;
 }
 
+p {
+    text-align: center;
+}
+
 .form-container input::placeholder{
     color: var(--colorDark1);
 }
